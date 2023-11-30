@@ -1,9 +1,9 @@
 ::-moz-selection {
-    color: #2c3338;
-    background: #949a9f;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
 }::selection {
-    color: #2c3338;
-    background: #949a9f;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -12,7 +12,7 @@
     font-weight: 400;
     font-size: 12pt;
     line-height: 26px;
-    color: #22282c;
+    color: #ffffff;
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -20,7 +20,7 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    color: #fafbfc;
+    background-color: #121212;
 }
 
 .profile-main-image {
@@ -44,6 +44,7 @@
     font-style: italic;
     font-family: monospace;
     color: #576169;
+    margin-bottom: 10px;
 }
 
 .github-stats {
@@ -61,25 +62,27 @@
 
 a {
     text-decoration: none;
-    color: #005ed4;
-    padding: 2px 6px;
+    color: #0288d1;
+    padding: 4px 10px;
     border-radius: 5px;
-    background-color: #e7edf6;
+    font-size: 10pt;
+    background-color: rgba(25, 99, 219, 0.12);
 }a:hover {
     color: #0267e3;
     text-decoration: underline;
 }b {
     font-weight: 700;
+    font-size: 9pt;
 }code {
-    background-color: #edeff2;
-    padding: 2px;
-    color: #2c3338;
-    font-size: 10pt;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 4px 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 9pt;
     font-family: monospace;
     border-radius: 5px;
 }mark {
-    color: #576169;
-    background-color: #fafbfc;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
     font-size: 9pt;
 }
 
@@ -111,7 +114,7 @@ a {
 .footer {
     width: 100%;
     height: 120px;
-    background-color: #22282c;
+    background-color: rgba(255, 255, 255, 0.12);
     margin-top: 60px;
 }.footer-content {
     margin-left: 20%;
