@@ -1,240 +1,246 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>own_programming_language</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>own_programming_language</title>
+    <style>
       html {
-        background-color: white;
+        color: #1a1a1a;
+        background-color: #fdfdfd;
       }
       body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
+        margin: 0 auto;
+        max-width: 36em;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        text-rendering: optimizeLegibility;
+        font-kerning: normal;
       }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
+      @media (max-width: 600px) {
+        body {
+          font-size: 0.9em;
+          padding: 12px;
+        }
+        h1 {
+          font-size: 1.8em;
+        }
       }
-      h2, h3, h4 {
-        page-break-after: avoid;
+      @media print {
+        html {
+          background-color: white;
+        }
+        body {
+          background-color: transparent;
+          color: black;
+          font-size: 12pt;
+        }
+        p, h2, h3 {
+          orphans: 3;
+          widows: 3;
+        }
+        h2, h3, h4 {
+          page-break-after: avoid;
+        }
       }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
+      p {
+        margin: 1em 0;
+      }
+      a {
+        color: #1a1a1a;
+      }
+      a:visited {
+        color: #1a1a1a;
+      }
+      img {
+        max-width: 100%;
+      }
+      svg {
+        height: auto;
+        max-width: 100%;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 1.4em;
+      }
+      h5, h6 {
+        font-size: 1em;
+        font-style: italic;
+      }
+      h6 {
+        font-weight: normal;
+      }
+      ol, ul {
+        padding-left: 1.7em;
+        margin-top: 1em;
+      }
+      li > ol, li > ul {
+        margin-top: 0;
+      }
+      blockquote {
+        margin: 1em 0 1em 1.7em;
+        padding-left: 1em;
+        border-left: 2px solid #e6e6e6;
+        color: #606060;
+      }
+      code {
+        font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+        font-size: 85%;
+        margin: 0;
+        hyphens: manual;
+      }
+      pre {
+        margin: 1em 0;
+        overflow: auto;
+      }
+      pre code {
+        padding: 0;
+        overflow: visible;
+        overflow-wrap: normal;
+      }
+      .sourceCode {
+      background-color: transparent;
       overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-<h1 id="what-is-this-interpreter-of-yours">What is this interpreter of
-yours?</h1>
-<p>Let’s not waste time on boring lectures or Wikipedia articles. Let’s
-start right away by looking at interesting examples of what an
-interpreter is, how it works, and how to create our own programming
-language that can be interpreted.</p>
-<p>First of all, it’s important to note that interpreters are not always
-as fast as compilers. They work differently. For example, a compiler
-translates code into assembly code that is later executed by the
-processor, while an interpreter works differently. It interprets an
-<code>Abstract Syntax Tree (AST)</code>, which we’ll explore later, from
-code in another language that has already been compiled. Therefore, code
-in <code>Python</code>, for example, often runs slower than the
-equivalent code in <code>C</code> or <code>C++</code>.</p>
-<h2 id="lexer">Lexer</h2>
-<p>To create your own interpreter, you need to break down the code of
-your invented language into tokens. Tokens are usually found in a file,
-as in the case of <a
-href="https://github.com/python/cpython">CPython</a>. If you look at the
-source code of <a
-href="https://github.com/python/cpython/blob/main/Grammar/Tokens">CPython</a>,
-you’ll see that everything is written in uppercase. These are the future
-token types. A token is an object that contains information about
-something and its content or type. For example, let’s break down this
-code snippet: printf “Hello World”. In our tokenizer, each character is
-combined into tokens, and we should get the following output:
-<code>[KEYWORD: printf][STRING: Hello World]</code>. In Python, you can
-achieve this output using the <a
-href="https://docs.python.org/3/reference/datamodel.html">magic
-method</a> <code>__repr__</code>. If you’re not familiar with magic
-methods, I recommend consulting the Python documentation.</p>
-<p>The main task of the lexer is to create tokens that will be used in
-parsers.</p>
-<h2 id="error-system">Error System</h2>
-<p>The error system is a class Error with arguments error_context,
-error_fragment, and error_position. The error context is a description
-of the error, the error fragment is a piece of code where the error
-occurred, and the position is a class that contains position
-information. The error’s name can be obtained using
-<code>self.__class__.__name</code>. It’s recommended to study <a
-href="https://docs.python.org/3/reference/datamodel.html">magic
-variables and methods</a>, as they will help you on your journey.</p>
-<p>Each error inherits from the Error class, for example,
-<code>InvalidSyntaxError(Error)</code>.</p>
-<h2 id="parser">Parser</h2>
-<p>The parser will help you create a programming language. For example,
-it converts tokens into an <code>Abstract Syntax Tree (AST)</code> or
-“<code>Action Tree.</code>” It’s recommended to understand what an
-<code>AST</code> is and choose what suits you. However, in this course,
-we will delve into <code>AST</code> in detail, as it’s more commonly
-used. I will also prepare a detailed post on this in the near future.
-It’s important to understand that <code>AST</code> is an abstract tree,
-and it is used to create a hierarchy that allows the interpreter to
-understand how to execute the instructions we’ve provided.</p>
-<h2 id="interpreter">Interpreter</h2>
-<p>And finally, the interpreter executes code presented in the form of
-an AST. It follows the instructions specified in the AST and executes
-them according to the logic of your programming language.</p>
-<h1 id="whats-next">What’s Next?</h1>
-<p>Next, I recommend reading a couple of books or articles on this
-topic. You can also read articles written by me if they are available or
-watch videos. Additionally, you can check out my GitHub through the
-links below and explore a lot more on my forum.</p>
-<p>Feel free to reach out if you have any more questions or need further
-guidance on this subject.</p>
-</body>
+      }
+      hr {
+        background-color: #1a1a1a;
+        border: none;
+        height: 1px;
+        margin: 1em 0;
+      }
+      table {
+        margin: 1em 0;
+        border-collapse: collapse;
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        font-variant-numeric: lining-nums tabular-nums;
+      }
+      table caption {
+        margin-bottom: 0.75em;
+      }
+      tbody {
+        margin-top: 0.5em;
+        border-top: 1px solid #1a1a1a;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      th {
+        border-top: 1px solid #1a1a1a;
+        padding: 0.25em 0.5em 0.25em 0.5em;
+      }
+      td {
+        padding: 0.125em 0.5em 0.25em 0.5em;
+      }
+      header {
+        margin-bottom: 4em;
+        text-align: center;
+      }
+      #TOC li {
+        list-style: none;
+      }
+      #TOC ul {
+        padding-left: 1.3em;
+      }
+      #TOC > ul {
+        padding-left: 0;
+      }
+      #TOC a:not(:hover) {
+        text-decoration: none;
+      }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      /* The extra [class] is a hack that increases specificity enough to
+        override a similar rule in reveal.js */
+      ul.task-list[class]{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        font-size: inherit;
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1.6em;
+        vertical-align: middle;
+      }
+    </style>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/forum.css">
+  </head>
+  <body>
+    <div class="medeby">
+      <img class="medeby-image" width="25px" height="25px" src="./pictures/profile_icon.jpg" alt="picrues">
+      <p class="medeby-text">riksnu <mark>(large)</mark> </p>
+    </div>
+    <h1 id="what-is-this-interpreter-of-yours">What is this interpreter of
+    yours?</h1>
+    <p>Let’s not waste time on boring lectures or Wikipedia articles. Let’s
+    start right away by looking at interesting examples of what an
+    interpreter is, how it works, and how to create our own programming
+    language that can be interpreted.</p>
+    <p>First of all, it’s important to note that interpreters are not always
+    as fast as compilers. They work differently. For example, a compiler
+    translates code into assembly code that is later executed by the
+    processor, while an interpreter works differently. It interprets an
+    <code>Abstract Syntax Tree (AST)</code>, which we’ll explore later, from
+    code in another language that has already been compiled. Therefore, code
+    in <code>Python</code>, for example, often runs slower than the
+    equivalent code in <code>C</code> or <code>C++</code>.</p>
+    <h2 id="lexer">Lexer</h2>
+    <p>To create your own interpreter, you need to break down the code of
+    your invented language into tokens. Tokens are usually found in a file,
+    as in the case of <a
+    href="https://github.com/python/cpython">CPython</a>. If you look at the
+    source code of <a
+    href="https://github.com/python/cpython/blob/main/Grammar/Tokens">CPython</a>,
+    you’ll see that everything is written in uppercase. These are the future
+    token types. A token is an object that contains information about
+    something and its content or type. For example, let’s break down this
+    code snippet: printf “Hello World”. In our tokenizer, each character is
+    combined into tokens, and we should get the following output:
+    <code>[KEYWORD: printf][STRING: Hello World]</code>. In Python, you can
+    achieve this output using the <a
+    href="https://docs.python.org/3/reference/datamodel.html">magic
+    method</a> <code>__repr__</code>. If you’re not familiar with magic
+    methods, I recommend consulting the Python documentation.</p>
+    <p>The main task of the lexer is to create tokens that will be used in
+    parsers.</p>
+    <h2 id="error-system">Error System</h2>
+    <p>The error system is a class Error with arguments error_context,
+    error_fragment, and error_position. The error context is a description
+    of the error, the error fragment is a piece of code where the error
+    occurred, and the position is a class that contains position
+    information. The error’s name can be obtained using
+    <code>self.__class__.__name</code>. It’s recommended to study <a
+    href="https://docs.python.org/3/reference/datamodel.html">magic
+    variables and methods</a>, as they will help you on your journey.</p>
+    <p>Each error inherits from the Error class, for example,
+    <code>InvalidSyntaxError(Error)</code>.</p>
+    <h2 id="parser">Parser</h2>
+    <p>The parser will help you create a programming language. For example,
+    it converts tokens into an <code>Abstract Syntax Tree (AST)</code> or
+    “<code>Action Tree.</code>” It’s recommended to understand what an
+    <code>AST</code> is and choose what suits you. However, in this course,
+    we will delve into <code>AST</code> in detail, as it’s more commonly
+    used. I will also prepare a detailed post on this in the near future.
+    It’s important to understand that <code>AST</code> is an abstract tree,
+    and it is used to create a hierarchy that allows the interpreter to
+    understand how to execute the instructions we’ve provided.</p>
+    <h2 id="interpreter">Interpreter</h2>
+    <p>And finally, the interpreter executes code presented in the form of
+    an AST. It follows the instructions specified in the AST and executes
+    them according to the logic of your programming language.</p>
+    <h1 id="whats-next">What’s Next?</h1>
+    <p>Next, I recommend reading a couple of books or articles on this
+    topic. You can also read articles written by me if they are available or
+    watch videos. Additionally, you can check out my GitHub through the
+    links below and explore a lot more on my forum.</p>
+    <p>Feel free to reach out if you have any more questions or need further
+    guidance on this subject.</p>
+  </body>
 </html>

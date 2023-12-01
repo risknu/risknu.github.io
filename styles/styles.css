@@ -1,0 +1,27 @@
+* {
+    color: rgba(0, 0, 0, 0.87);
+} pre {
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.04);
+}code {
+    padding: 1px 6px;
+    background-color: rgba(0, 0, 0, 0.04);
+}mark {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.madeby {
+    margin-left: 25%;
+    position: relative;
+}.medeby-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}.medeby-text {
+    display: inline-block;
+    position: relative;
+    font-size: 11pt;
+    top: -7px;
+}

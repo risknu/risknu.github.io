@@ -1,572 +1,577 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>rivector</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>rivector</title>
+    <style>
       html {
-        background-color: white;
+        color: #1a1a1a;
+        background-color: #fdfdfd;
       }
       body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
+        margin: 0 auto;
+        max-width: 36em;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 25px;
+        padding-bottom: 50px;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        text-rendering: optimizeLegibility;
+        font-kerning: normal;
       }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
+      @media (max-width: 600px) {
+        body {
+          font-size: 0.9em;
+          padding: 12px;
+        }
+        h1 {
+          font-size: 1.8em;
+        }
       }
-      h2, h3, h4 {
-        page-break-after: avoid;
+      @media print {
+        html {
+          background-color: white;
+        }
+        body {
+          background-color: transparent;
+          color: black;
+          font-size: 12pt;
+        }
+        p, h2, h3 {
+          orphans: 3;
+          widows: 3;
+        }
+        h2, h3, h4 {
+          page-break-after: avoid;
+        }
       }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
+      p {
+        margin: 1em 0;
+      }
+      a {
+        color: #1a1a1a;
+      }
+      a:visited {
+        color: #1a1a1a;
+      }
+      img {
+        max-width: 100%;
+      }
+      svg {
+        height: auto;
+        max-width: 100%;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 1.4em;
+      }
+      h5, h6 {
+        font-size: 1em;
+        font-style: italic;
+      }
+      h6 {
+        font-weight: normal;
+      }
+      ol, ul {
+        padding-left: 1.7em;
+        margin-top: 1em;
+      }
+      li > ol, li > ul {
+        margin-top: 0;
+      }
+      blockquote {
+        margin: 1em 0 1em 1.7em;
+        padding-left: 1em;
+        border-left: 2px solid #e6e6e6;
+        color: #606060;
+      }
+      code {
+        font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+        font-size: 85%;
+        margin: 0;
+        hyphens: manual;
+      }
+      pre {
+        margin: 1em 0;
+        overflow: auto;
+      }
+      pre code {
+        padding: 0;
+        overflow: visible;
+        overflow-wrap: normal;
+      }
+      .sourceCode {
+      background-color: transparent;
       overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
       }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {  background-color: #f8f8f8; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ef2929; } /* Alert */
-    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #204a87; } /* Attribute */
-    code span.bn { color: #0000cf; } /* BaseN */
-    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4e9a06; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #8f5902; font-style: italic; } /* Comment */
-    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-    code span.dt { color: #204a87; } /* DataType */
-    code span.dv { color: #0000cf; } /* DecVal */
-    code span.er { color: #a40000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #0000cf; } /* Float */
-    code span.fu { color: #204a87; font-weight: bold; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-    code span.ot { color: #8f5902; } /* Other */
-    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-    code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-    code span.ss { color: #4e9a06; } /* SpecialString */
-    code span.st { color: #4e9a06; } /* String */
-    code span.va { color: #000000; } /* Variable */
-    code span.vs { color: #4e9a06; } /* VerbatimString */
-    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-<h1 id="rivector---risknu-vectors">rivector - risknu vectors</h1>
-<p>This Python library introduces a set of fast vector classes, designed
-for convenient and rapid vector operations, similar to those in Unity.
-It is well-suited for game development using Pygame and also useful for
-general mathematical applications. The library is open source and
-available on GitHub.</p>
-<h2 id="how-it-works-and-why-its-fast">How it Works and Why It’s
-Fast</h2>
-<p>The core mathematical logic and vector class are entirely written in
-C++. They are then utilized through CPython in Python, transforming it
-into a wrapper class that can be fully utilized in Python. Speaking of
-its power, here are some speed-related details, including a comparison
-with the popular numpy library in mathematics:</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/risknu/rivector/main/docs/figure_docs.png"
-alt="figure 1" />
-<figcaption aria-hidden="true">figure 1</figcaption>
-</figure>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode diff"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">+ Vector2Wrapper 0.8779744120547548</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">- NumPy 1.6510654900339432</span></span></code></pre></div>
-<h1 id="methodsfunctions-documentation">Methods/Functions
-Documentation</h1>
-<h2 id="constructor">Constructor</h2>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rivector <span class="im">import</span> Vector2</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> Vector2(x: <span class="bu">float</span>, y: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>x</code>: The x-component of the vector.</li>
-<li><code>y</code>: The y-component of the vector.</li>
-</ul></li>
-</ul>
-<h2 id="set-method"><code>set</code> Method</h2>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">set</span>(x: <span class="bu">float</span>, y: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>new_X</code>: New value for the x-component.</li>
-<li><code>new_Y</code>: New value for the y-component. &gt; [!Note] &gt;
-Modifies the current vector.</li>
-</ul></li>
-</ul>
-<h2 id="equals-method"><code>equals</code> Method</h2>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vector.equals(b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>b</code>: Another Vector2 object for comparison.</li>
-</ul></li>
-<li><em>Returns:</em> <code>true</code> if the vectors are exactly
-equal; otherwise, <code>false</code>.</li>
-</ul>
-<h2 id="clamp_magnitude-method"><code>clamp_magnitude</code> Method</h2>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vector.clamp_magnitude(max_length: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters</em>:
-<ul>
-<li><code>max_length</code>: The maximum length for the vector.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-clamped vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-    \text{magnitude} &amp;= \sqrt{x^2 + y^2} \\
-    \text{if } \text{magnitude} &amp;&gt; \text{maxlength} \\
-    \text{factor} &amp;= \frac{\text{maxlength}}{\text{magnitude}} \\
-    x &amp;= x \times \text{factor} \\
-    y &amp;= y \times \text{factor}
-\end{align*}
-\]</span></p>
-<h2 id="distance-method"><code>distance</code> Method</h2>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vector.distance(b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>b</code>: Another Vector2 object.</li>
-</ul></li>
-<li><em>Returns:</em> The distance between the two vectors.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; \sqrt{(x-b.x\_coord)^{2}+(y-b.y\_coord)^{2}}
-\end{align*}
-\]</span></p>
-<h2 id="lerp_unclamped-method"><code>lerp_unclamped</code> Method</h2>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vector.lerp_unclamped(a: Vector2, b: Vector2, t: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: Starting Vector2.</li>
-<li><code>b</code>: Ending Vector2.</li>
-<li><code>t</code>: Interpolation factor (0.0 to 1.0).</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-interpolated vector.</li>
-</ul>
-<p><span class="math display">\[ \begin{align*}
-    x &amp;= a.x\_coord + (b.x\_coord - a.x\_coord) \cdot t \\
-    y &amp;= a.y\_coord + (b.y\_coord - a.y\_coord) \cdot t
-\end{align*} \]</span></p>
-<h2 id="max-method"><code>max</code> Method</h2>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">max</span>(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: First Vector2.</li>
-<li><code>b</code>: Second Vector2.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-vector with the largest components.</li>
-</ul>
-<h2 id="min-method"><code>min</code> Method</h2>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">min</span>(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: First Vector2.</li>
-<li><code>b</code>: Second Vector2.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-vector with the smallest components.</li>
-</ul>
-<h2 id="perpendicular-method"><code>perpendicular</code> Method</h2>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vector.perpendicular(a: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li>a: The Vector2 object.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-perpendicular vector.</li>
-</ul>
-<h2 id="move_towards-method"><code>move_towards</code> Method</h2>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vector.move_towards(a: Vector2, b: Vector2, max_distance_delta: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: Current position.</li>
-<li><code>b</code>: Target position.</li>
-<li><code>max_distance_delta</code>: Maximum distance to move towards
-the target.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the new
-position.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; direction = (b - a).normalize() \\
-&amp; x = a.x\_coord + direction.x * max\_distancec\_delta \\
-&amp; y = a.y\_coord + direction.y * max\_distancec\_delta
-\end{align*}
-\]</span></p>
-<h2 id="reflect-method"><code>reflect</code> Method</h2>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vector.reflect(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: Incident vector.</li>
-<li><code>b</code>: Normal vector.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-reflected vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; parallel = (a * b) * b \\
-&amp; x = 2 * parallel.x - a.x\_coord \\
-&amp; y = 2 * parallel.y - a.y\_coord \\
-\end{align*}
-\]</span></p>
-<h2 id="scale-method"><code>scale</code> Method</h2>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>vector.scale(a: Vector2, scale: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: The Vector2 object.</li>
-<li><code>scale</code>: The scaling factor.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-scaled vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; x = a.x\_coord * scale \\
-&amp; y = a.y\_coord * scale \\
-\end{align*}
-\]</span></p>
-<h2 id="signed_angle-method"><code>signed_angle</code> Method</h2>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vector.signed_angle(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: Starting Vector2.</li>
-<li><code>b</code>: Ending Vector2.</li>
-</ul></li>
-<li><em>Returns:</em> The signed angle in degrees between the two
-vectors.</li>
-</ul>
-<p><span class="math display">\[ \begin{align*}
-    \text{angle} &amp;= \arctan2(ba, ab) \\
-    \text{signedangle} &amp;= \text{angle}
-\end{align*} \]</span></p>
-<h2 id="smooth_damp-method"><code>smooth_damp</code> Method</h2>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vector.smooth_damp(a: Vector2, b: Vector2, c: Vector2, smooth_time: <span class="bu">float</span>, max_speed: <span class="bu">float</span>, delta_time: <span class="bu">float</span>)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: Current position.</li>
-<li><code>b</code>: Target position.</li>
-<li><code>c</code>: Current velocity.</li>
-<li><code>smooth_time</code>: Smoothing time.</li>
-<li><code>max_speed</code>: Maximum speed.</li>
-<li><code>delta_time</code>: Time since the last call.</li>
-</ul></li>
-<li><em>Returns:</em> A dynamically allocated array representing the
-smoothly interpolated position.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; difference = b - 1 \\
-&amp; spring_force = difference * smooth_time * max_speed \\
-&amp; damping_force = c * 2 * \sqrt{(smooth\_time)} * sprintf\_force \\
-&amp; acceleration = (spring_force + damping_force) * delta_time \\
-&amp; x = a.x\_coord + difference.x + acceleration.x \\
-&amp; y = a.y\_coord + difference.y + acceleration.y
-\end{align*}
-\]</span></p>
-<h2 id="to_list-method"><code>to_list</code> Method</h2>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vector.to_list()</span></code></pre></div>
-<ul>
-<li><em>Returns:</em> A dynamically allocated array representing the
-vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; list = \left[ x, y \right]
-\end{align*}
-\]</span></p>
-<h2 id="sqrmagnitude-method"><code>sqrmagnitude</code> Method</h2>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>vector.sqrmagnitude</span></code></pre></div>
-<ul>
-<li><em>Returns:</em> The squared magnitude of the vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; sqrmagnitude = x^{2}+y^{2}
-\end{align*}
-\]</span></p>
-<h2 id="magnitude-method"><code>magnitude</code> Method</h2>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vector.magnitude</span></code></pre></div>
-<ul>
-<li><em>Returns:</em> The magnitude of the vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; magnitude = \sqrt{x^{2}+y^{2}}
-\end{align*}
-\]</span></p>
-<h2 id="normalized-method"><code>normalized</code> Method</h2>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>vector.normalized()</span></code></pre></div>
-<ul>
-<li><em>Returns:</em> A dynamically allocated array representing the
-normalized vector.</li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-&amp; magnitude = \sqrt{x^{2}+y^{2}} \\
-&amp; x = x/magnitude \\
-&amp; y = y/magnitude
-\end{align*}
-\]</span></p>
-<h2 id="dot-method"><code>dot</code> Method</h2>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>vector.dot(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: First Vector2.</li>
-<li><code>b</code>: Second Vector2.</li>
-</ul></li>
-<li><em>Returns:</em> The dot product of the two vectors.</li>
-</ul>
-<p><span class="math display">\[ \begin{align*}
-    \text{dot} &amp;= a.x\_coord \cdot b.x\_coord + a.y\_coord \cdot
-b.y\_coord
-\end{align*} \]</span></p>
-<h2 id="angle-method"><code>angle</code> Method</h2>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>vector.angle(a: Vector2, b: Vector2)</span></code></pre></div>
-<ul>
-<li><em>Parameters:</em>
-<ul>
-<li><code>a</code>: First Vector2.</li>
-<li><code>b</code>: Second Vector2.</li>
-</ul></li>
-<li><em>Returns:</em> The angle in radians between the two vectors.</li>
-</ul>
-<p><span class="math display">\[ \begin{align*}
-    \text{angle} &amp;= \arccos\left(\frac{a \cdot b}{\|a\| \cdot
-\|b\|}\right)
-\end{align*} \]</span></p>
-<h2 id="getter-methods">Getter methods</h2>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>vector.y_coord</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vector.x_coord</span></code></pre></div>
-<ul>
-<li><em>Returns:</em> The x or y component of the vector,
-respectively.</li>
-</ul>
-</body>
+      hr {
+        background-color: #1a1a1a;
+        border: none;
+        height: 1px;
+        margin: 1em 0;
+      }
+      table {
+        margin: 1em 0;
+        border-collapse: collapse;
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        font-variant-numeric: lining-nums tabular-nums;
+      }
+      table caption {
+        margin-bottom: 0.75em;
+      }
+      tbody {
+        margin-top: 0.5em;
+        border-top: 1px solid #1a1a1a;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      th {
+        border-top: 1px solid #1a1a1a;
+        padding: 0.25em 0.5em 0.25em 0.5em;
+      }
+      td {
+        padding: 0.125em 0.5em 0.25em 0.5em;
+      }
+      header {
+        margin-bottom: 4em;
+        text-align: center;
+      }
+      #TOC li {
+        list-style: none;
+      }
+      #TOC ul {
+        padding-left: 1.3em;
+      }
+      #TOC > ul {
+        padding-left: 0;
+      }
+      #TOC a:not(:hover) {
+        text-decoration: none;
+      }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+      ul.task-list[class]{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        font-size: inherit;
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1.6em;
+        vertical-align: middle;
+      }
+
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+    type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/forum.css">
+  </head>
+  <body>
+    <div class="medeby">
+      <img class="medeby-image" width="25px" height="25px" src="./pictures/profile_icon.jpg" alt="picrues">
+      <p class="medeby-text">riksnu <mark>(large)</mark> </p>
+    </div>
+  <h1 id="rivector---risknu-vectors">rivector - risknu vectors</h1>
+  <p>This Python library introduces a set of fast vector classes, designed
+  for convenient and rapid vector operations, similar to those in Unity.
+  It is well-suited for game development using Pygame and also useful for
+  general mathematical applications. The library is open source and
+  available on GitHub.</p>
+  <h2 id="how-it-works-and-why-its-fast">How it Works and Why It’s
+  Fast</h2>
+  <p>The core mathematical logic and vector class are entirely written in
+  C++. They are then utilized through CPython in Python, transforming it
+  into a wrapper class that can be fully utilized in Python. Speaking of
+  its power, here are some speed-related details, including a comparison
+  with the popular numpy library in mathematics:</p>
+  <figure>
+  <img
+  src="https://raw.githubusercontent.com/risknu/rivector/main/docs/figure_docs.png"
+  alt="figure 1" />
+  <figcaption aria-hidden="true">figure 1</figcaption>
+  </figure>
+  <div class="sourceCode" id="cb1"><pre
+  class="sourceCode diff"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">+ Vector2Wrapper 0.8779744120547548</span></span>
+  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">- NumPy 1.6510654900339432</span></span></code></pre></div>
+  <h1 id="methodsfunctions-documentation">Methods/Functions
+  Documentation</h1>
+  <h2 id="constructor">Constructor</h2>
+  <div class="sourceCode" id="cb2"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rivector <span class="im">import</span> Vector2</span>
+  <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> Vector2(x: <span class="bu">float</span>, y: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>x</code>: The x-component of the vector.</li>
+  <li><code>y</code>: The y-component of the vector.</li>
+  </ul></li>
+  </ul>
+  <h2 id="set-method"><code>set</code> Method</h2>
+  <div class="sourceCode" id="cb3"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">set</span>(x: <span class="bu">float</span>, y: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>new_X</code>: New value for the x-component.</li>
+  <li><code>new_Y</code>: New value for the y-component. &gt; [!Note] &gt;
+  Modifies the current vector.</li>
+  </ul></li>
+  </ul>
+  <h2 id="equals-method"><code>equals</code> Method</h2>
+  <div class="sourceCode" id="cb4"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vector.equals(b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>b</code>: Another Vector2 object for comparison.</li>
+  </ul></li>
+  <li><em>Returns:</em> <code>true</code> if the vectors are exactly
+  equal; otherwise, <code>false</code>.</li>
+  </ul>
+  <h2 id="clamp_magnitude-method"><code>clamp_magnitude</code> Method</h2>
+  <div class="sourceCode" id="cb5"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vector.clamp_magnitude(max_length: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters</em>:
+  <ul>
+  <li><code>max_length</code>: The maximum length for the vector.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  clamped vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+      \text{magnitude} &amp;= \sqrt{x^2 + y^2} \\
+      \text{if } \text{magnitude} &amp;&gt; \text{maxlength} \\
+      \text{factor} &amp;= \frac{\text{maxlength}}{\text{magnitude}} \\
+      x &amp;= x \times \text{factor} \\
+      y &amp;= y \times \text{factor}
+  \end{align*}
+  \]</span></p>
+  <h2 id="distance-method"><code>distance</code> Method</h2>
+  <div class="sourceCode" id="cb6"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vector.distance(b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>b</code>: Another Vector2 object.</li>
+  </ul></li>
+  <li><em>Returns:</em> The distance between the two vectors.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; \sqrt{(x-b.x\_coord)^{2}+(y-b.y\_coord)^{2}}
+  \end{align*}
+  \]</span></p>
+  <h2 id="lerp_unclamped-method"><code>lerp_unclamped</code> Method</h2>
+  <div class="sourceCode" id="cb7"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vector.lerp_unclamped(a: Vector2, b: Vector2, t: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: Starting Vector2.</li>
+  <li><code>b</code>: Ending Vector2.</li>
+  <li><code>t</code>: Interpolation factor (0.0 to 1.0).</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  interpolated vector.</li>
+  </ul>
+  <p><span class="math display">\[ \begin{align*}
+      x &amp;= a.x\_coord + (b.x\_coord - a.x\_coord) \cdot t \\
+      y &amp;= a.y\_coord + (b.y\_coord - a.y\_coord) \cdot t
+  \end{align*} \]</span></p>
+  <h2 id="max-method"><code>max</code> Method</h2>
+  <div class="sourceCode" id="cb8"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">max</span>(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: First Vector2.</li>
+  <li><code>b</code>: Second Vector2.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  vector with the largest components.</li>
+  </ul>
+  <h2 id="min-method"><code>min</code> Method</h2>
+  <div class="sourceCode" id="cb9"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vector.<span class="bu">min</span>(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: First Vector2.</li>
+  <li><code>b</code>: Second Vector2.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  vector with the smallest components.</li>
+  </ul>
+  <h2 id="perpendicular-method"><code>perpendicular</code> Method</h2>
+  <div class="sourceCode" id="cb10"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vector.perpendicular(a: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li>a: The Vector2 object.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  perpendicular vector.</li>
+  </ul>
+  <h2 id="move_towards-method"><code>move_towards</code> Method</h2>
+  <div class="sourceCode" id="cb11"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vector.move_towards(a: Vector2, b: Vector2, max_distance_delta: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: Current position.</li>
+  <li><code>b</code>: Target position.</li>
+  <li><code>max_distance_delta</code>: Maximum distance to move towards
+  the target.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the new
+  position.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; direction = (b - a).normalize() \\
+  &amp; x = a.x\_coord + direction.x * max\_distancec\_delta \\
+  &amp; y = a.y\_coord + direction.y * max\_distancec\_delta
+  \end{align*}
+  \]</span></p>
+  <h2 id="reflect-method"><code>reflect</code> Method</h2>
+  <div class="sourceCode" id="cb12"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vector.reflect(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: Incident vector.</li>
+  <li><code>b</code>: Normal vector.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  reflected vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; parallel = (a * b) * b \\
+  &amp; x = 2 * parallel.x - a.x\_coord \\
+  &amp; y = 2 * parallel.y - a.y\_coord \\
+  \end{align*}
+  \]</span></p>
+  <h2 id="scale-method"><code>scale</code> Method</h2>
+  <div class="sourceCode" id="cb13"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>vector.scale(a: Vector2, scale: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: The Vector2 object.</li>
+  <li><code>scale</code>: The scaling factor.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  scaled vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; x = a.x\_coord * scale \\
+  &amp; y = a.y\_coord * scale \\
+  \end{align*}
+  \]</span></p>
+  <h2 id="signed_angle-method"><code>signed_angle</code> Method</h2>
+  <div class="sourceCode" id="cb14"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vector.signed_angle(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: Starting Vector2.</li>
+  <li><code>b</code>: Ending Vector2.</li>
+  </ul></li>
+  <li><em>Returns:</em> The signed angle in degrees between the two
+  vectors.</li>
+  </ul>
+  <p><span class="math display">\[ \begin{align*}
+      \text{angle} &amp;= \arctan2(ba, ab) \\
+      \text{signedangle} &amp;= \text{angle}
+  \end{align*} \]</span></p>
+  <h2 id="smooth_damp-method"><code>smooth_damp</code> Method</h2>
+  <div class="sourceCode" id="cb15"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vector.smooth_damp(a: Vector2, b: Vector2, c: Vector2, smooth_time: <span class="bu">float</span>, max_speed: <span class="bu">float</span>, delta_time: <span class="bu">float</span>)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: Current position.</li>
+  <li><code>b</code>: Target position.</li>
+  <li><code>c</code>: Current velocity.</li>
+  <li><code>smooth_time</code>: Smoothing time.</li>
+  <li><code>max_speed</code>: Maximum speed.</li>
+  <li><code>delta_time</code>: Time since the last call.</li>
+  </ul></li>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  smoothly interpolated position.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; difference = b - 1 \\
+  &amp; spring_force = difference * smooth_time * max_speed \\
+  &amp; damping_force = c * 2 * \sqrt{(smooth\_time)} * sprintf\_force \\
+  &amp; acceleration = (spring_force + damping_force) * delta_time \\
+  &amp; x = a.x\_coord + difference.x + acceleration.x \\
+  &amp; y = a.y\_coord + difference.y + acceleration.y
+  \end{align*}
+  \]</span></p>
+  <h2 id="to_list-method"><code>to_list</code> Method</h2>
+  <div class="sourceCode" id="cb16"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vector.to_list()</span></code></pre></div>
+  <ul>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; list = \left[ x, y \right]
+  \end{align*}
+  \]</span></p>
+  <h2 id="sqrmagnitude-method"><code>sqrmagnitude</code> Method</h2>
+  <div class="sourceCode" id="cb17"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>vector.sqrmagnitude</span></code></pre></div>
+  <ul>
+  <li><em>Returns:</em> The squared magnitude of the vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; sqrmagnitude = x^{2}+y^{2}
+  \end{align*}
+  \]</span></p>
+  <h2 id="magnitude-method"><code>magnitude</code> Method</h2>
+  <div class="sourceCode" id="cb18"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vector.magnitude</span></code></pre></div>
+  <ul>
+  <li><em>Returns:</em> The magnitude of the vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; magnitude = \sqrt{x^{2}+y^{2}}
+  \end{align*}
+  \]</span></p>
+  <h2 id="normalized-method"><code>normalized</code> Method</h2>
+  <div class="sourceCode" id="cb19"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>vector.normalized()</span></code></pre></div>
+  <ul>
+  <li><em>Returns:</em> A dynamically allocated array representing the
+  normalized vector.</li>
+  </ul>
+  <p><span class="math display">\[
+  \begin{align*}
+  &amp; magnitude = \sqrt{x^{2}+y^{2}} \\
+  &amp; x = x/magnitude \\
+  &amp; y = y/magnitude
+  \end{align*}
+  \]</span></p>
+  <h2 id="dot-method"><code>dot</code> Method</h2>
+  <div class="sourceCode" id="cb20"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>vector.dot(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: First Vector2.</li>
+  <li><code>b</code>: Second Vector2.</li>
+  </ul></li>
+  <li><em>Returns:</em> The dot product of the two vectors.</li>
+  </ul>
+  <p><span class="math display">\[ \begin{align*}
+      \text{dot} &amp;= a.x\_coord \cdot b.x\_coord + a.y\_coord \cdot
+  b.y\_coord
+  \end{align*} \]</span></p>
+  <h2 id="angle-method"><code>angle</code> Method</h2>
+  <div class="sourceCode" id="cb21"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>vector.angle(a: Vector2, b: Vector2)</span></code></pre></div>
+  <ul>
+  <li><em>Parameters:</em>
+  <ul>
+  <li><code>a</code>: First Vector2.</li>
+  <li><code>b</code>: Second Vector2.</li>
+  </ul></li>
+  <li><em>Returns:</em> The angle in radians between the two vectors.</li>
+  </ul>
+  <p><span class="math display">\[ \begin{align*}
+      \text{angle} &amp;= \arccos\left(\frac{a \cdot b}{\|a\| \cdot
+  \|b\|}\right)
+  \end{align*} \]</span></p>
+  <h2 id="getter-methods">Getter methods</h2>
+  <div class="sourceCode" id="cb22"><pre
+  class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>vector.y_coord</span>
+  <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vector.x_coord</span></code></pre></div>
+  <ul>
+  <li><em>Returns:</em> The x or y component of the vector,
+  respectively.</li>
+  </ul>
+  </body>
 </html>
