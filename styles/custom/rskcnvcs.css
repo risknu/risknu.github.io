@@ -85,8 +85,14 @@
     .main-content {
         width: 420px;
     }.main-image {
-        float: right;
+        float: none;
         width: 100%;
+        display: inline-block;
+    }.main-panel {
+        float: none;
+        text-align: left;
+        display: inline-block;
+        width: 260px;
     }
 }
 
