@@ -60,6 +60,13 @@
     left: 0px;
 }
 
+code {
+    background-color: #262626;
+    padding: 0px 3px;
+    border-radius: 5px;
+    border: 1px solid #171717;
+}
+
 ::selection {
     background-color: #262626;
 } p, span, button {
