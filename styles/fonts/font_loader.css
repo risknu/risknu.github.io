@@ -1,4 +1,7 @@
 @font-face {
     font-family: eUkraine;
     src: url("e-Ukraine-Regular.otf") format("opentype");
+}@font-face {
+    font-family: eUkraineHead;
+    src: url("e-UkraineHead-Regular.otf") format("opentype");
 }

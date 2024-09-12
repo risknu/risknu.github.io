@@ -12,6 +12,7 @@
     width: 100%; height: 100%;
     overflow-x: hidden; overflow-y: hidden;
 
+    -webkit-user-select: none; -ms-user-select: none; user-select: none;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
@@ -26,17 +27,20 @@
 }
 
 .container-txt1 {
+    opacity: 1; transition: opacity 1s ease-in-out;
     grid-column: 1; grid-row: 1;
-    font-family: 'eUkraine', sans-serif;
-    font-size: 64pt; font-style: normal;
+    font-family: 'eUkraineHead', sans-serif;
+    font-size: 32pt; font-style: normal;
 }.container-txt2 {
+    transition: opacity 1s ease-in-out;
     grid-column: 2; grid-row: 1;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 128pt;
+    font-size: 64pt;
 }.container-txt3 {
+    transition: opacity 1s ease-in-out;
     grid-column: 2; grid-row: 2; 
     font-family: 'Times New Roman', Times, serif;
-    font-size: 48pt; font-style: italic;
+    font-size: 24pt; font-style: italic;
 }
 
 .copyright-container {

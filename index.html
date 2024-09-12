@@ -11,13 +11,32 @@
     <body>
         <div class="container">
             <div class="container-content">
-                <h1 class="container-txt1">styled</h1>
-                <h1 class="container-txt2">by</h1>
-                <h1 class="container-txt3">risknu</h1>
+                <h1 id="container-txt1" class="container-txt1">styled</h1>
+                <h1 id="container-txt2" class="container-txt2">by</h1>
+                <h1 id="container-txt3" class="container-txt3">risknu</h1>
             </div>
         </div>
         <div class="copyright-container">
             <span class="copyright">copyright (c) risknu 2023-2024</span>
         </div>
+        <script>
+            const templates = [["styled", "зробив", "made", "creator"], 
+                ["by", "(вiн)", "(he)", "me"], ["risknu", "рiскну"]]
+            let templates_indexes = [0, 0, 0]
+
+            function change_template_first() {
+                document.getElementById("container-txt1").innerText = templates[0][templates_indexes[0]];
+                templates_indexes[0] = (templates_indexes[0] + 1) % templates[0].length;
+            }function change_template_second() {
+                document.getElementById("container-txt2").innerText = templates[1][templates_indexes[1]];
+                templates_indexes[1] = (templates_indexes[1] + 1) % templates[1].length;
+            }function change_template_third() {
+                document.getElementById("container-txt3").innerText = templates[2][templates_indexes[2]];
+                templates_indexes[2] = (templates_indexes[2] + 1) % templates[2].length;
+            }
+
+            setInterval(change_template_first, 918); setInterval(change_template_second, 1115);
+            setInterval(change_template_third, 649);
+        </script>
     </body>
 </html>
