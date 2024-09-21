@@ -1,58 +1,58 @@
 :root {
-    --font-color: #212121; --background-color: #ffffff;
+    --background-color: rgb(18, 16, 17); --font-color: rgb(253, 235, 248);
+    --font-gray-color: rgb(177, 161, 172);
 }
 
 * {
-    font-size: 11pt; font-family: 'Times New Roman', Times, serif;
+    font-size: 10pt; font-family: 'eUkraine';
     font-weight: 400; text-decoration: none; list-style: none;
     padding: 0px; margin: 0px; box-sizing: border-box;
-    outline: 0px; border: 0px; color: var(--font-color);
+    outline: 0px; border: 0px; color: var(--font-color)
 }html, body {
     background-color: var(--background-color);
     width: 100%; height: 100%;
     overflow-x: hidden; overflow-y: hidden;
 
-    -webkit-user-select: none; -ms-user-select: none; user-select: none;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    background: rgb(255,169,231); width: 100%;
+    background: linear-gradient(135deg, rgba(255,169,231,1) 0%, rgba(42,45,67,1) 100%);
+    position: absolute; top: 50%;
+    -ms-transform: translateY(-50%); transform: translateY(-50%);
 }.container-content {
-    display: grid; gap: 0px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    padding: 20px 20px;
+}.container-image {
+    width: 126px; height: 126px;
+    border-radius: 16px; display: inline-block;
 }
 
-.container-txt1 {
-    opacity: 1; transition: opacity 1s ease-in-out;
-    grid-column: 1; grid-row: 1;
-    font-family: 'eUkraineHead', sans-serif;
-    font-size: 32pt; font-style: normal;
-}.container-txt2 {
-    transition: opacity 1s ease-in-out;
-    grid-column: 2; grid-row: 1;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 64pt;
-}.container-txt3 {
-    transition: opacity 1s ease-in-out;
-    grid-column: 2; grid-row: 2; 
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 24pt; font-style: italic;
+.right-container {
+    display: inline-block;
+    position: absolute; top: 50%;
+    -ms-transform: translateY(-50%); transform: translateY(-50%);
+}.right-container-content {
+    padding: 0px 20px;
+}.container-status {
+    font-size: 9pt;
+}.container-header {
+    font-size: 32pt; font-family: 'eUkraineHead';
+}.container-description {
+    color: var(--font-gray-color);
+}.container-description>mark {
+    font-family: 'eUkraineHead';
+    color: var(--font-color); background-color: transparent;
+}.container-header {
+    padding: 16px 0px;
 }
 
-.copyright-container {
-    text-align: left; width: 100%;
-}.copyright {
-    position: fixed; bottom: 0px; left: 4px;
+.copyright {
+    position: fixed; bottom: 10px; left: 10px;
+    color: var(--font-gray-color); opacity: 0.5;
+    font-size: 9pt;
 }
 
 @media only screen and (max-width: 600px) {
-    .container-txt1 { font-size: 16pt; }
-    .container-txt2 { font-size: 48pt; }
-    .container-txt3 { font-size: 16pt; }
-
-    .copyright-container { text-align: center; }
+    
 }
