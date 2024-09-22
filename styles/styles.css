@@ -1,6 +1,6 @@
 :root {
-    --background-color: rgb(18, 16, 17); --font-color: rgb(253, 235, 248);
-    --font-gray-color: rgb(177, 161, 172);
+    --background-color: rgb(18, 16, 17); --font-color: rgba(253, 235, 248, 0.773);
+    --font-gray-color: rgba(255, 234, 248, 0.57);
 }
 
 * {
@@ -17,6 +17,7 @@
 }
 
 .container {
+    opacity: 0.97;
     background: rgb(255,169,231); width: 100%;
     background: linear-gradient(135deg, rgba(255,169,231,1) 0%, rgba(42,45,67,1) 100%);
     position: absolute; top: 50%;
@@ -44,7 +45,7 @@
     font-family: 'eUkraineHead';
     color: var(--font-color); background-color: transparent;
 }.container-header {
-    padding: 16px 0px;
+    padding: 5px 0px;
 }
 
 .copyright {
@@ -53,6 +54,4 @@
     font-size: 9pt;
 }
 
-@media only screen and (max-width: 600px) {
-    
-}
+@media only screen and (max-width: 600px) {}
