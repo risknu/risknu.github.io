@@ -1,6 +1,6 @@
 :root {
-    --background-color: rgb(18, 16, 17); --font-color: rgba(253, 235, 248, 0.773);
-    --font-gray-color: rgba(255, 234, 248, 0.57);
+    --background-color: rgb(15, 15, 17); --font-color: rgb(236, 235, 253);
+    --font-gray-color: rgb(188, 194, 203);
 }
 
 * {
@@ -16,16 +16,22 @@
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes background_animation {
+    from { background-position: 0% 100%;
+    } to { background-position: 100% 50%; }
+} 
+
 .container {
-    opacity: 0.97;
-    background: rgb(255,169,231); width: 100%;
-    background: linear-gradient(135deg, rgba(255,169,231,1) 0%, rgba(42,45,67,1) 100%);
-    position: absolute; top: 50%;
+    animation: background_animation 12s ease infinite; background: rgb(43,42,67);
+    animation-direction: alternate; content: '';
+    background: linear-gradient(135deg, rgba(43,42,67,1) 0%, rgba(67,42,42,1) 66%, rgba(65,42,67,1) 100%);
+    position: absolute; top: 50%; width: 100%;
+    background-size: 200% 200%; background-position: 0% 100%;
     -ms-transform: translateY(-50%); transform: translateY(-50%);
 }.container-content {
     padding: 20px 20px;
 }.container-image {
-    width: 126px; height: 126px;
+    width: 126px; height: 126px; background-color: black;
     border-radius: 16px; display: inline-block;
 }
 
